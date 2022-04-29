@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.querySelector("#btnOk").onclick = function(){
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+<table>
+  <tr>
+  	<td><img src="/static/images/pic2.jpg" style="width: 30%"/></td>
+  	<td>
+  	<pre>
+  	[릴레이퐁퐁 상품][야야] 폴리 엠버 2D 보드
+  	판매가50,400원 쇼핑특별가?
+	20,000원 (약 7% 할인) 자세히보기▼
+	적립금사용가능 상품입니다. (이벤트 기간 : 4월 1일~4월 30일) 배송비무료배송
+	(제주 3,000원 / 도서산간 6,000원 추가) 반품/교환정보상품확인 후 환불 ㆍ반품/교환 배송비 6,000원
+	(제주 3,000원 / 도서산간 6,000원 추가) 브랜드야야 제조사/제조국야야/태국
+  	</pre>
+  	</td>
+  </tr>
+  <tr>
+  	<td colspan="2">
+  		<form action="cart" name="frm" method="post">{% csrf_token %}
+  			<input type="hidden" name="name" value="폴리 엠버 2D 보드">
+  			<input type="hidden" name="price" value="20000">
+  			<input type="button" id="btnOk" value="장바구니에 물건담기">
+  			<input type="button" value="홈으로" onclick="history.back()">
+  		</form>
+  	</td>
+  </tr>
+</table>
+</body>
+</html>
