@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type ="text/javascript">
+window.onload = function(){
+	document.querySelector("#btnOk").onclick=function(){
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><img src="/static/images/pic2.jpg" style = "width: 30%"/></td>
+		<td>
+		<pre>
+		남녀공용 NUVOLA 누볼라(7GC7643)
+		31%
+		49,000원
+		33,810원
+		배송안내4/11(월) 출발예정 안내글 토글
+		무료배송
+		스마일클럽안내스마일클럽 최대 2.3% 적립
+		열기
+		카드할인안내무이자할부 카드추가혜택
+		열기
+		배송안내본 상품은 국내배송만 가능합니다
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="cart" name="frm" method ="post">{% csrf_token %}
+				<input type="hidden" name="name" value ="남녀공용 NUVOLA 누볼라" />
+				<input type="hidden" name="price" value ="49000" />
+				<input type="button" id="btnOk" value ="장바구니 물건담기" />
+				<input type="button" value="홈으로" onclick ="history.back()" />
+			</form>
+		</td>
+	
+	</tr>
+</table>
+</body>
+</html>
