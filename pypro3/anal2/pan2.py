@@ -4,7 +4,7 @@ data = Series([1,3,2],index = (1,4,2))
 print(data)
 
 data2 = data.reindex((1,2,4))  # re-indexing,  행 순서 재배치 
-print(data2)
+print(data2, type(data2))
 
 print()
 data3 = data.reindex([0,1,2,3,4,5])   # 대응 값이 없는 인덱스는 Nan(결측값)으로 대치

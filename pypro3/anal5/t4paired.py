@@ -23,3 +23,17 @@ print(stats.ttest_rel(baseline, follow_up))
 # 복부 수술 전 몸무게와 복부 수술 후 몸무게의 평균은 차이가 있다.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
