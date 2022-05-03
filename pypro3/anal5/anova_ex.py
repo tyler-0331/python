@@ -10,18 +10,41 @@ import numpy as np
 import MySQLdb
 import pickle
 
+# 귀무: 빵을 기름에 튀길 때 기름의 종류에 따라 흡수된 기름의 양의 평균은 차이가 없다.
+# 대립: 빵을 기름에 튀길 때 기름의 종류에 따라 흡수된 기름의 양의 평균은 차이가 있다.
+
 data = {'종류':[1, 2, 3, 4, 2, 1, 3, 4, 2, 1, 2, 3, 4, 1, 2, 1, 1, 3, 4, 2],
         '기름':[64, 72, 68, 77, 56, np.nan, 95, 78, 55, 91, 63, 49, 70, 80, 90, 33, 44, 55, 66, 77]}
 df = pd.DataFrame(data)
 print(df,type(df))
 df = df.fillna(df['기름'].mean())
 print(df)
+print()
+
+m1 = df[df['종류']==1]
+m2 = df[df['종류']==2]
+m3 = df[df['종류']==3]
+m4 = df[df['종류']==4]
+o1 = m1['기름']
+o2 = m2['기름']
+o3 = m3['기름']
+o4 = m4['기름']
+
+# 정규성 확인! 
+print(stats.shapiro(o1).pvalue)
+print(stats.shapiro(o2).pvalue)
+print(stats.shapiro(o3).pvalue)
+print(stats.shapiro(o4).pvalue)
+
+# 등분산성 확인! 
+print(stats.levene(o1,o2,o3,o4).pvalue)   # 0.326896 > 0.05 이므로 만족!
+print(stats.f_oneway(o1,o2,o3,o4))
+# pvalue=0.8482436 > 0.05 이므로 귀무가설 채택!
+# 귀무: 빵을 기름에 튀길 때 기름의 종류에 따라 흡수된 기름의 양의 평균은 차이가 없다.
 
 
 
-
-
-
+'''
 print()
 # [ANOVA 예제 2]
 # DB에 저장된 buser와 jikwon 테이블을 이용하여 총무부, 영업부, 전산부, 관리부 직원의 연봉의 평균에 차이가 있는지 검정하시오.
@@ -81,7 +104,7 @@ finally:
 print()
 
 
-
+'''
 
 
 

@@ -20,6 +20,7 @@ print(data.describe())
 data = np.genfromtxt("../testdata/group3.txt", delimiter = ",") # numpy로 읽기
 print(data[:3], type(data)) # <class 'numpy.ndarray'>
 print(data.shape)  # (22, 2)
+print(data)
 
 # 세 개의 집단에 급여 평균
 gr1 = data[data[:,1] == 1, 0]

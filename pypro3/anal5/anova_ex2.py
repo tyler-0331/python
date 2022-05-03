@@ -9,7 +9,7 @@ import scipy.stats as stats
 # 귀무 : 기름의 종류에 따라 흡수하는 기름의 평균에 차이가 없다.
 # 대립 : 기름의 종류에 따라 흡수하는 기름의 평균에 차이가 있다.
 
-data = pd.read_csv('bread.csv')
+data = pd.read_csv('../testdata/bread.csv')
 data = data.fillna(data['quantity'].mean())
 print(data.head(3))
 print(data.describe())
