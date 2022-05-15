@@ -11,6 +11,7 @@ print(mtcars)
 print(mtcars.columns)
 print(mtcars.describe())
 
+print('------------------------')
 print(mtcars.corr())
 print(np.corrcoef(mtcars.hp, mtcars.mpg)) # -0.77616837
 print(np.corrcoef(mtcars.wt, mtcars.mpg)) # -0.86765938
