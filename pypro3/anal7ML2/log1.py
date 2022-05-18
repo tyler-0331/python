@@ -79,18 +79,3 @@ new_pred2 = result2.predict(newdf2)
 print('new_pred2: ', np.rint(new_pred2.values))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

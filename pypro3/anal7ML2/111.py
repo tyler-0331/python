@@ -1,4 +1,16 @@
 import requests
+import xmltodict
+import pandas as pd
 
-print(requests.get('http://openapi.seoul.go.kr:8088/6662437a4274796c36344179514c6a/xml/OpenAptInfo/1/5/').content)
+url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade'
+params ={'serviceKey' : 'x+wB0jStYlKe8vROEBp+XGXpIXAMHSzYaDWZ6DEciNEfl3ypAAvQwkFXN/cnZ67xg+mr13V9TZjeRT7Xkog4rg==', 'LAWD_CD' : '11110', 'DEAL_YMD' : '201612' }
 
+resp = requests.get(url, params=params)
+print(resp.content.decode('utf-8'))
+print()
+data = xmltodict.parse(resp.content.decode('utf-8'))
+print(data)
+print()
+print(data['response']['body']['items']['item'])
+print()
+print(pd.DataFrame(data['response']['body']['items']['item']))
