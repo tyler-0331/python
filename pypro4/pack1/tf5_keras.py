@@ -15,6 +15,7 @@ print(x)  # feature
 print(y)  # label(class)
 
 # 2. 모델 구성
+
 # model = Sequential([
 #     Dense(input_dim = 2, units= 1),
 #     Activation('sigmoid')
